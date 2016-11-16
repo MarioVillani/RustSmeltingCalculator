@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rust Smelting Calculator</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+</head>
+
+<body class="text-center" id="body" ng-app="Calculator">
+    <img src="img/logo.png" class="img-responsive" id="logo" />
+    <div class="container text-center" ng-controller="calc">
+        <h4>Slots to use for smelting:</h4>
+        <select class="form-control" ng-model="slots" ng-change="slotsChange()">
+            <option ng-selected="true">1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <div class="col-xs-6">
+            <img class="img-responsive" src="img/Metal_Fragments_icon.png" />
+            <input ng-change="fragsChange()" min="0" ng-model="frags" class="form-control" type="number" />
+        </div>
+        <div class="col-xs-6">
+            <img class="img-responsive" src="img/Wood_icon.png" />
+            <input class="form-control" min="0" ng-change="fragsWoodChange()" ng-model="frags_wood" type="number" />
+        </div>
+        <div class="col-xs-6">
+            <img class="img-responsive" src="img/Sulfur_icon.png" />
+            <input class="form-control" min="0" ng-change="sulfurChange()" ng-model="sulfur" type="number" />
+        </div>
+        <div class="col-xs-6">
+            <img class="img-responsive" src="img/Wood_icon.png" />
+            <input class="form-control" min="0" ng-change="sulfurWoodChange()" ng-model="sulfur_wood" type="number" />
+        </div>
+        <div class="col-xs-6">
+            <img class="img-responsive" src="img/High_Quality_Metal_icon.png" />
+            <input class="form-control" min="0" ng-change="hqmChange()" ng-model="hqm" type="number" />
+        </div>
+        <div class="col-xs-6">
+            <img class="img-responsive" src="img/Wood_icon.png" />
+            <input class="form-control" min="0" ng-change="hqmWoodChange()" ng-model="hqm_wood" type="number" />
+        </div>
+    </div>
+</body>
+<script src="js/angular.min.js"></script>
+<script src="js/calc.js"></script>
+
+</html>

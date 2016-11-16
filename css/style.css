@@ -1,0 +1,24 @@
+#body {
+    background-image: url('../img/paper_bg.png');
+    padding: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#logo,
+select.form-control,.img-responsive,input.form-control {
+    margin: 0 auto;
+}
+
+h4 {
+    color: #ce422b;
+}
+
+input.form-control,
+select.form-control {
+    background-color: rgba( 0, 0, 0, 0.3);
+    max-width: 100px;
+    font-size: 19px;
+    text-align: center;
+    color: #ce422b;
+    border: none !important;
+}
