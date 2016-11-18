@@ -1,37 +1,33 @@
- var app = angular.module("Calculator", []);
- // Const
- var wood_for_frag = 5;
- var wood_for_sulfur = 2.5;
- var wood_for_hqm = 10;
+ var app = angular.module("Calculator", ['readableTime']);
  app.controller("calc", function($scope) {
      // Default values for selects and inputs
-     $scope.frags = $scope.sulfur = $scope.hqm = 1
-     $scope.frags_wood = 5;
-     $scope.sulfur_wood = 2.5;
-     $scope.hqm_wood = 10;
-     $scope.slots = 1;
-     // Listeners
-     $scope.slotsChange = function() {
-         $scope.fragsChange();
-         $scope.sulfurChange();
-         $scope.hqmChange();
+     $scope.frags = $scope.sulfur = $scope.hqm = $scope.slots = 1;
+     $scope.time_taken = 0;
+     $scope.calculateTime = function() {
+         $scope.time_taken = 2 * $scope.wood;
+     }
+     $scope.sulfurChange = function() {
+         $scope.wood = (2.5 * $scope.sulfur) / $scope.slots;
+         $scope.calculateTime();
      };
      $scope.fragsChange = function() {
-         $scope.frags_wood = (wood_for_frag * $scope.frags) / $scope.slots;
-     };
-     $scope.fragsWoodChange = function() {
-         $scope.frags = ($scope.slots * $scope.frags_wood) / wood_for_frag;
-     };
-     $scope.sulfurChange = function() {
-         $scope.sulfur_wood = (wood_for_sulfur * $scope.sulfur) / $scope.slots;
-     };
-     $scope.sulfurWoodChange = function() {
-
+         $scope.wood = (5 * $scope.frags) / $scope.slots;
+         $scope.calculateTime();
      };
      $scope.hqmChange = function() {
-         $scope.hqm_wood = (wood_for_hqm * $scope.hqm) / $scope.slots;
-     };
-     $scope.hqmWoodChange = function() {
+         $scope.wood = (10 * $scope.hqm) / $scope.slots;
+         $scope.calculateTime();
 
+     };
+     $scope.charcoalChange = function() {
+         $scope.wood = $scope.charcoal * 0.75;
+         $scope.calculateTime();
+     }
+     $scope.woodChange = function() {
+         $scope.sulfur = ($scope.slots * $scope.wood) / 2.5;
+         $scope.frags = ($scope.slots * $scope.wood) / 5;
+         $scope.hqm = ($scope.slots * $scope.wood) / 10;
+         $scope.charcoal = ($scope.wood / 0.75);
+         $scope.calculateTime();
      };
  });
