@@ -5,11 +5,14 @@
 }
 
 #logo,
-select.form-control,.img-responsive,input.form-control {
+select.form-control,
+.img-responsive,
+input.form-control {
     margin: 0 auto;
 }
 
-h2,h4 {
+h2,
+h4 {
     color: #ce422b;
 }
 
